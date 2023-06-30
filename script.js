@@ -1,3 +1,6 @@
+import checkComplete from "./componentes/checkComplete.js";
+import deleteIcon from "./componentes/deleteIcon.js";
+
 (() => {
     const btn = document.querySelector("[data-form-btn]");
 
@@ -11,38 +14,17 @@
         input.value = "";
 
         const taskContent = document.createElement("div")
-        taskContent.appendChild(checkComplete());
         const titleTask = document.createElement("span");
         titleTask.classList.add("task");
         titleTask.innerText = value;
+        taskContent.appendChild(checkComplete());
         taskContent.appendChild(titleTask);
-        const contenido = `<i class="fas fa-trash-alt trashIcon icon"></i>`
+        // taskContent.appendChild(deleteIcon());
         // Colocar el texto en el div
         //nuevaTarea.innerHTML = contenido;
         nuevaTarea.appendChild(taskContent);
-
+        nuevaTarea.appendChild(deleteIcon()); 
         list.appendChild(nuevaTarea);
     };
     btn.addEventListener("click", crearTarea);
-
-    const checkComplete = () => {
-        const i = document.createElement("i")
-        i.classList.add("far", "fa-check-square", "icon");
-        i.addEventListener("click", completeTask);
-        return i;
-    }
-
-    const completeTask = (evento) => {
-        const element = evento.target;
-        element.classList.toggle("fas");
-        element.classList.toggle("completeIcon")
-        element.classList.toggle("far");
-    }
-
-    const removeTask = (evento) => {
-        const remove = evento.target;
-        remove.classList.add("far");
-        remove.classList.remove("fas");
-    }
-})
-    ();
+})();
