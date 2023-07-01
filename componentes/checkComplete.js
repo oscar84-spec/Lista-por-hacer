@@ -4,7 +4,6 @@ const checkComplete = () => {
     i.addEventListener("click", completeTask);
     return i;
 };
-
 const completeTask = (evento) => {
     const element = evento.target;
     element.classList.toggle("fas");

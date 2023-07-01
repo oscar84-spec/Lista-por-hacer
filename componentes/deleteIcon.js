@@ -5,7 +5,6 @@ const deleteIcon = () => {
     i.addEventListener("click", deleteTask );
     return i;
 }
-
 const deleteTask = (evento) => {
     const elementPadre = evento.target.parentElement;
     // console.log(elementPadre);
